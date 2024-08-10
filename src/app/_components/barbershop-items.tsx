@@ -17,11 +17,11 @@ const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
           <Image
             alt={barbershop.name}
             fill
-            className="rounded-2xl object-cover"
+            className="rounded-xl object-cover"
             src={barbershop.imageUrl}
           />
           <Badge
-            className="absolute left-2 top-2 space-x-1 opacity-95"
+            className="absolute left-1 top-1 space-x-1 opacity-95"
             variant={"secondary"}
           >
             <StarIcon size={12} className="fill-primary text-primary" />
@@ -32,7 +32,7 @@ const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
         <div className="px-2 py-2">
           <h3 className="truncate font-semibold">{barbershop.name}</h3>
           <p className="truncate text-sm text-gray-400">{barbershop.address}</p>
-          <Button className="mt-4 w-full" variant="secondary">
+          <Button className="mt-4 w-full rounded-lg" variant="secondary">
             Reservar
           </Button>
         </div>
