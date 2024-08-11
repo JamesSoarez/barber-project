@@ -3,7 +3,6 @@ import Header from "./_components/header"
 import { Button } from "./_components/ui/button"
 import { Input } from "./_components/ui/input"
 import Image from "next/image"
-import { Card, CardContent } from "./_components/ui/card"
 import { db } from "./_lib/prisma"
 import BarbershopItem from "./_components/barbershop-item"
 import { quickSearchOptions } from "./_constants/search"
@@ -35,7 +34,7 @@ const Home = async () => {
           {quickSearchOptions.map((option) => (
             <Button
               className="gap-2 rounded-xl px-5 py-6"
-              variant="secondary"
+              variant="outline"
               key={option.title}
             >
               <Image
@@ -49,7 +48,7 @@ const Home = async () => {
           ))}
         </div>
 
-        <div className="relative mt-6 h-[150px] w-full">
+        <div className="relative mt-6 h-[185px] w-full">
           <Image
             alt="Banner agendamento de serviço"
             src="/banner_barber.svg"
@@ -60,7 +59,7 @@ const Home = async () => {
 
         <BookingItem />
 
-        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+        <h2 className="mb-3 mt-6 text-sm font-bold uppercase text-gray-400">
           Recomendados
         </h2>
 
@@ -70,7 +69,7 @@ const Home = async () => {
           ))}
         </div>
 
-        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+        <h2 className="mb-3 mt-6 text-sm font-bold uppercase text-gray-400">
           Populares
         </h2>
 
@@ -80,15 +79,6 @@ const Home = async () => {
           ))}
         </div>
       </div>
-      <footer>
-        <Card className="px-5 pt-6">
-          <CardContent>
-            <p className="text-sm text-gray-400">
-              © 2023 Copyright <span className="font-bold">FSW Barber</span>
-            </p>
-          </CardContent>
-        </Card>
-      </footer>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { ChevronsLeftIcon, MapPinIcon, MenuIcon, StarIcon } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ServiceItem from "@/app/_components/service-item"
+import PhoneItem from "@/app/_components/phone-item"
 
 interface BarbershopPageProps {
   params: {
@@ -26,10 +27,9 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
     return notFound()
   }
 
-  console.log(barbershop?.services)
-
   return (
     <div>
+      {/* IMAGEM */}
       <div className="relative h-[250px] w-full">
         <Image
           alt={barbershop?.name}
@@ -58,6 +58,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
         </Button>
       </div>
 
+      {/* TITULO */}
       <div className="border-b border-solid p-5">
         <h1 className="mb-3 text-xl font-bold">{barbershop.name}</h1>
         <div className="mb-2 flex items-center gap-2">
@@ -71,7 +72,8 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
         </div>
       </div>
 
-      <div className="bordder-b space-y-4 border-solid p-5">
+      {/* DESCRIÇÃO */}
+      <div className="space-y-4 border-b border-solid p-5">
         <h2 className="text-sm font-semibold uppercase text-gray-400">
           Sobre nós
         </h2>
@@ -80,7 +82,8 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
         </p>
       </div>
 
-      <div className="space-y-3 p-5">
+      {/* SERVIÇOS */}
+      <div className="space-y-3 border-b border-solid p-5">
         <h2 className="text-sm font-semibold uppercase text-gray-400">
           Serviços
         </h2>
@@ -89,6 +92,13 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
             <ServiceItem key={service.id} service={service} />
           ))}
         </div>
+      </div>
+
+      {/* CONTATO */}
+      <div className="space-y-4 p-5">
+        {barbershop.phones.map((phone) => (
+          <PhoneItem key={phone} phone={phone} />
+        ))}
       </div>
     </div>
   )

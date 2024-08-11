@@ -23,10 +23,10 @@ const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
           />
           <Badge
             className="absolute left-1 top-1 space-x-1 opacity-95"
-            variant={"secondary"}
+            variant={"destructive"}
           >
             <StarIcon size={12} className="fill-primary text-primary" />
-            <p className="text-xs font-semibold">5,0</p>
+            <p className="font-normal text-white">5,0</p>
           </Badge>
         </div>
 
