@@ -35,7 +35,7 @@ const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
           <p className="truncate text-sm text-gray-400">{barbershop.address}</p>
 
           <Button
-            className="mt-4 w-full rounded-lg"
+            className="mt-4 w-full rounded-xl"
             variant="secondary"
             asChild
           >

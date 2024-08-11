@@ -34,7 +34,7 @@ const Home = async () => {
         <div className="mt-6 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
           {quickSearchOptions.map((option) => (
             <Button
-              className="gap-2 rounded-lg px-5 py-6"
+              className="gap-2 rounded-xl px-5 py-6"
               variant="secondary"
               key={option.title}
             >
