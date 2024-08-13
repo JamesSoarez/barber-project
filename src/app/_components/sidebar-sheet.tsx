@@ -34,7 +34,7 @@ const SidebarSheet = () => {
         {data?.user ? (
           <div className="flex items-center gap-2">
             <Avatar>
-              <AvatarImage src={data?.user?.image ?? "/hh.jpg"} />
+              <AvatarImage src={data?.user?.image ?? ""} />
             </Avatar>
 
             <div>
@@ -105,7 +105,7 @@ const SidebarSheet = () => {
             height={18}
             width={18}
           />
-          Agendamento
+          Agendamentos
         </Button>
       </div>
 
@@ -115,14 +115,19 @@ const SidebarSheet = () => {
             key={option.title}
             className="justify-start gap-3 font-light"
             variant={"ghost"}
+            asChild
           >
-            <Image
-              alt={option.title}
-              src={option.imageUrl}
-              height={18}
-              width={18}
-            />
-            {option.title}
+            <SheetClose asChild>
+              <Link href={`/barbershops?service=${option.title}`}>
+                <Image
+                  alt={option.title}
+                  src={option.imageUrl}
+                  height={18}
+                  width={18}
+                />
+                {option.title}
+              </Link>
+            </SheetClose>
           </Button>
         ))}
       </div>
