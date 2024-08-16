@@ -105,16 +105,18 @@ const SidebarSheet = () => {
         ))}
       </div>
 
-      <div className="flex flex-col gap-2 pt-8">
-        <Button
-          className="justify-start gap-3 font-light"
-          variant={"ghost"}
-          onClick={handleLogoutClick}
-        >
-          <LogOutIcon size={18}></LogOutIcon>
-          Sair da conta
-        </Button>
-      </div>
+      {data?.user && (
+        <div className="flex flex-col gap-2 pt-8">
+          <Button
+            className="justify-start gap-3 font-light"
+            variant={"ghost"}
+            onClick={handleLogoutClick}
+          >
+            <LogOutIcon size={18}></LogOutIcon>
+            Sair da conta
+          </Button>
+        </div>
+      )}
     </SheetContent>
   )
 }
