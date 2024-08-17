@@ -53,9 +53,9 @@ const Bookings = async () => {
     <>
       <Header />
       <div className="p-5">
-        <h1 className="text-xl font-medium">Agendamentos</h1>
+        <h1 className="text-lg font-normal">Agendamentos</h1>
         <div className="space-y-3 pt-6">
-          <h2 className="mb-3 mt-6 text-sm font-bold uppercase text-gray-400">
+          <h2 className="mb-3 mt-6 text-sm font-medium uppercase text-gray-400">
             Confirmados
           </h2>
           {confirmedBookings.map((booking) => (
@@ -63,7 +63,7 @@ const Bookings = async () => {
           ))}
         </div>
         <div className="space-y-3 pt-6">
-          <h2 className="mb-3 mt-6 text-sm font-bold uppercase text-gray-400">
+          <h2 className="mb-3 mt-6 text-sm font-medium uppercase text-gray-400">
             Finalizados
           </h2>
           {concludedBookings.map((booking) => (

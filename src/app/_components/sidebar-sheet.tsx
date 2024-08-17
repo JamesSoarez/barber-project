@@ -16,11 +16,9 @@ const SidebarSheet = () => {
   const handleLogoutClick = () => signOut()
 
   return (
-    <SheetContent className="overflow-scroll border-none">
+    <SheetContent className="w-[90%] overflow-scroll border-none">
       <SheetHeader>
-        <SheetTitle className="text-left text-base font-normal">
-          Menu
-        </SheetTitle>
+        <SheetTitle className="text-left text-lg font-normal">Menu</SheetTitle>
       </SheetHeader>
 
       <div className="mt-2 flex items-center justify-between gap-3 border-b border-solid py-5">
@@ -44,7 +42,7 @@ const SidebarSheet = () => {
                   <LogInIcon />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="w-[75%] rounded-xl border-none">
+              <DialogContent className="w-[80%] rounded-xl border-none">
                 <SignInDialog />
               </DialogContent>
             </Dialog>

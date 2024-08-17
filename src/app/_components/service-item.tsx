@@ -174,9 +174,9 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   Reservar
                 </Button>
 
-                <SheetContent className="border-none px-0">
-                  <SheetHeader>
-                    <SheetTitle className="pb-5 pl-5 text-left text-base font-normal">
+                <SheetContent className="w-[90%] border-none px-0">
+                  <SheetHeader className="border-b border-solid">
+                    <SheetTitle className="pb-5 pl-5 text-left text-lg font-normal">
                       Faça sua reserva
                     </SheetTitle>
                   </SheetHeader>
@@ -293,7 +293,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
         open={signInDialogIsOpen}
         onOpenChange={(open) => setSignInDialogIsOpen(open)}
       >
-        <DialogContent className="w-[75%] rounded-xl border-none">
+        <DialogContent className="w-[80%] rounded-xl border-none">
           <SignInDialog />
         </DialogContent>
       </Dialog>

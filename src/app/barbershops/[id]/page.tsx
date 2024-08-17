@@ -81,7 +81,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
 
       {/* DESCRIÇÃO */}
       <div className="space-y-4 border-b border-solid p-5">
-        <h2 className="text-sm font-semibold uppercase text-gray-400">
+        <h2 className="text-sm font-medium uppercase text-gray-400">
           Sobre nós
         </h2>
         <p className="text-justify text-base font-light">
@@ -91,7 +91,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
 
       {/* SERVIÇOS */}
       <div className="space-y-3 border-b border-solid p-5">
-        <h2 className="text-sm font-semibold uppercase text-gray-400">
+        <h2 className="text-sm font-medium uppercase text-gray-400">
           Serviços
         </h2>
         <div className="space-y-3">
