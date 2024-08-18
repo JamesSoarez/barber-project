@@ -22,7 +22,7 @@ const PhoneItem = ({ phone }: PhoneItemProps) => {
       </div>
       <Button
         variant="outline"
-        className="rounded-xl"
+        className="rounded-xl hover:bg-inherit"
         size="sm"
         onClick={() => handleCopyPhoneClick(phone)}
       >

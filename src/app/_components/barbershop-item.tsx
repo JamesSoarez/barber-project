@@ -22,10 +22,13 @@ const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
             src={barbershop.imageUrl}
           />
           <Badge
-            className="absolute left-1 top-1 space-x-1 opacity-95"
-            variant={"destructive"}
+            className="absolute left-1 top-1 space-x-1 rounded-es-xl opacity-90"
+            variant={"warning"}
           >
-            <StarIcon size={12} className="fill-primary text-primary" />
+            <StarIcon
+              size={12}
+              className="fill-warning-foreground text-warning-foreground"
+            />
             <p className="font-normal text-white">5,0</p>
           </Badge>
         </div>

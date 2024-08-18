@@ -174,7 +174,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   Reservar
                 </Button>
 
-                <SheetContent className="w-[90%] border-none px-0">
+                <SheetContent className="w-[80%] border-none px-0">
                   <SheetHeader className="border-b border-solid">
                     <SheetTitle className="pb-5 pl-5 text-left text-lg font-normal">
                       Faça sua reserva
@@ -234,10 +234,10 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                       <Card className="rounded-xl">
                         <CardContent className="space-y-3 p-3">
                           <div className="flex items-center justify-between">
-                            <h2 className="text-base font-bold text-destructive-foreground">
+                            <h2 className="text-base font-bold">
                               {service.name}
                             </h2>
-                            <p className="text-base font-semibold text-destructive-foreground">
+                            <p className="text-base font-semibold">
                               {Intl.NumberFormat("pt-BR", {
                                 style: "currency",
                                 currency: "BRL",
@@ -278,7 +278,12 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   {selectedTime && selectedDay && (
                     <SheetFooter className="px-3 pt-10">
                       <SheetClose asChild>
-                        <Button onClick={handleCreateBooking}>Confirmar</Button>
+                        <Button
+                          onClick={handleCreateBooking}
+                          className="rounded-xl"
+                        >
+                          Confirmar
+                        </Button>
                       </SheetClose>
                     </SheetFooter>
                   )}
