@@ -76,7 +76,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                 variant={isConfirmed ? "warning" : "newsecondary"}
                 className="w-fit rounded-lg text-sm font-semibold"
               >
-                {isConfirmed ? "confirmao" : "finalizado"}
+                {isConfirmed ? "confirmado" : "finalizado"}
               </Badge>
               <h3>{booking.service.name}</h3>
               <div className="flex items-center gap-2">
