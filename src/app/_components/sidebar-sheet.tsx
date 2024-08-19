@@ -6,7 +6,16 @@ import { SheetClose, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet"
 import { quickSearchOptions } from "../_constants/search"
 import Link from "next/link"
 import Image from "next/image"
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog"
 import { signOut, useSession } from "next-auth/react"
 import { Avatar, AvatarImage } from "./ui/avatar"
 import SignInDialog from "./sign-in-dialog"
@@ -113,14 +122,43 @@ const SidebarSheet = () => {
 
       {data?.user && (
         <div className="flex flex-col gap-2 pt-8">
-          <Button
-            className="justify-start gap-3 font-light"
-            variant={"ghost"}
-            onClick={handleLogoutClick}
-          >
-            <LogOutIcon size={18}></LogOutIcon>
-            Sair da conta
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                className="w-full justify-start gap-3 rounded-xl font-light"
+                variant={"ghost"}
+              >
+                <LogOutIcon size={18} />
+                Sair da conta
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="w-[80%] space-y-5 rounded-xl border-none">
+              <DialogHeader>
+                <DialogTitle className="mb-5 font-medium">
+                  Fazer logout
+                </DialogTitle>
+                <DialogDescription className="text-sm font-normal text-gray-400">
+                  Deseja mesmo sair da plataforma?
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter className="flex flex-row gap-3">
+                <DialogClose asChild>
+                  <Button variant={"secondary"} className="w-full rounded-xl">
+                    Cancelar
+                  </Button>
+                </DialogClose>
+                <DialogClose asChild>
+                  <Button
+                    variant={"destructive"}
+                    className="w-full rounded-xl"
+                    onClick={handleLogoutClick}
+                  >
+                    Sair
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
       )}
     </SheetContent>
