@@ -183,7 +183,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             ))}
           </div>
         </div>
-        <SheetFooter className="mt-5 pb-14">
+        <SheetFooter className="mt-5 pb-16">
           <div className="flex flex-col items-center gap-3">
             {isConfirmed && (
               <Dialog>

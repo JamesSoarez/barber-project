@@ -193,7 +193,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   Reservar
                 </Button>
 
-                <SheetContent className="w-[80%] border-none px-0">
+                <SheetContent className="w-[90%] overflow-auto border-none px-0 pb-16">
                   <SheetHeader className="border-b border-solid">
                     <SheetTitle className="pb-8 pl-5 pt-3 text-left text-lg font-normal">
                       Faça sua reserva
