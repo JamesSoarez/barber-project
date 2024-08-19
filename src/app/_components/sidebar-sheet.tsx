@@ -69,21 +69,23 @@ const SidebarSheet = () => {
           </Button>
         </SheetClose>
 
-        <Button
-          className="justify-start gap-3 font-light"
-          variant={"ghost"}
-          asChild
-        >
-          <Link href={"/bookings"}>
-            <Image
-              alt="ícone de calendário do agendamento"
-              src="/calendar_icon.svg"
-              height={18}
-              width={18}
-            />
-            Agendamentos
-          </Link>
-        </Button>
+        {data?.user?.name && (
+          <Button
+            className="justify-start gap-3 font-light"
+            variant={"ghost"}
+            asChild
+          >
+            <Link href={"/bookings"}>
+              <Image
+                alt="ícone de calendário do agendamento"
+                src="/calendar_icon.svg"
+                height={18}
+                width={18}
+              />
+              Agendamentos
+            </Link>
+          </Button>
+        )}
       </div>
 
       <div className="flex flex-col gap-2 border-b border-solid py-5">
