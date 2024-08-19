@@ -21,7 +21,7 @@ const PhoneItem = ({ phone }: PhoneItemProps) => {
         <p className="text-sm">{phone}</p>
       </div>
       <Button
-        variant="outline"
+        variant="ghost"
         className="rounded-xl hover:bg-inherit"
         size="sm"
         onClick={() => handleCopyPhoneClick(phone)}

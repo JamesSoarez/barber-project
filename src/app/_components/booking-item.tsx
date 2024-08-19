@@ -74,7 +74,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             <div className="flex flex-col gap-2 py-3 pl-3">
               <Badge
                 variant={isConfirmed ? "warning" : "newsecondary"}
-                className="w-fit rounded-lg text-sm font-semibold"
+                className="w-fit rounded-xl text-sm font-semibold"
               >
                 {isConfirmed ? "confirmado" : "finalizado"}
               </Badge>
@@ -103,7 +103,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
           </CardContent>
         </Card>
       </SheetTrigger>
-      <SheetContent className="w-[80%] border-none">
+      <SheetContent className="w-[90%] overflow-auto border-none">
         <SheetHeader>
           <SheetTitle className="text-left text-lg font-normal">
             Informações da Reserva
@@ -135,7 +135,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
         <div className="mt-6">
           <Badge
             variant={isConfirmed ? "warning" : "secondary"}
-            className="w-fit rounded-lg text-sm font-semibold"
+            className="w-fit rounded-xl text-sm font-semibold"
           >
             {isConfirmed ? "confirmado" : "finalizado"}
           </Badge>
@@ -183,8 +183,8 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             ))}
           </div>
         </div>
-        <SheetFooter className="mt-10">
-          <div className="flex flex-col items-center gap-4">
+        <SheetFooter className="mt-5 pb-14">
+          <div className="flex flex-col items-center gap-3">
             {isConfirmed && (
               <Dialog>
                 <DialogTrigger asChild>
