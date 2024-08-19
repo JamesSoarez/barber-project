@@ -12,12 +12,12 @@ const SignInDialog = () => {
         <DialogTitle className="my-2 font-medium">
           Faça login na plataforma
         </DialogTitle>
-        <DialogDescription className="font-light">
+        <DialogDescription className="text-sm font-normal text-gray-400">
           Conecte-se usando sua conta Google
         </DialogDescription>
       </DialogHeader>
       <Button
-        variant={"outline"}
+        variant={"secondary"}
         className="mt-3 gap-2 rounded-xl text-base"
         onClick={handleLoginWithGoogleClick}
       >

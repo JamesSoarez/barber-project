@@ -188,17 +188,17 @@ const BookingItem = ({ booking }: BookingItemProps) => {
               <Dialog>
                 <DialogTrigger asChild>
                   <Button variant={"destructive"} className="w-full rounded-xl">
-                    Cancelar reserva
+                    Cancelar
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="w-[80%] space-y-5 rounded-xl border-none">
                   <DialogHeader>
-                    <DialogTitle className="mb-5">
-                      Você tem certeza que deseja cancelar?
+                    <DialogTitle className="mb-5 font-medium">
+                      Cancelar Reserva
                     </DialogTitle>
                     <DialogDescription className="text-sm font-normal text-gray-400">
-                      Ao cancelar, você perderá sua reserva e não poderá
-                      recuperá-la. Essa ação não pode ser desfeita.
+                      Tem certeza que deseja cancelar esse agendamento? Essa
+                      ação não pode ser desfeita.
                     </DialogDescription>
                   </DialogHeader>
                   <DialogFooter className="flex flex-row gap-3">
