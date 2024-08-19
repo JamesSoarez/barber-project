@@ -67,7 +67,7 @@ const Home = async () => {
           {quickSearchOptions.map((option) => (
             <Button
               className="gap-2 rounded-xl px-5 py-6"
-              variant="outline"
+              variant="ghost"
               key={option.title}
               asChild
             >
