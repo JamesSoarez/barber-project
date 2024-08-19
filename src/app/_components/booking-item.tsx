@@ -154,9 +154,11 @@ const BookingItem = ({ booking }: BookingItemProps) => {
               <div className="flex items-center justify-between">
                 <h2 className="text-sm font-light text-gray-400">Data</h2>
                 <p className="text-sm font-light">
-                  {format(booking.date, "d 'de' MMMM", {
-                    locale: ptBR,
-                  })}
+                  <span>{format(booking.date, "d ", { locale: ptBR })}</span>
+                  <span>de</span>
+                  <span className="capitalize">
+                    {format(booking.date, " MMMM", { locale: ptBR })}
+                  </span>
                 </p>
               </div>
 

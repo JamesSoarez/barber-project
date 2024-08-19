@@ -195,12 +195,12 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
 
                 <SheetContent className="w-[80%] border-none px-0">
                   <SheetHeader className="border-b border-solid">
-                    <SheetTitle className="pb-5 pl-5 text-left text-lg font-normal">
+                    <SheetTitle className="pb-8 pl-5 pt-3 text-left text-lg font-normal">
                       Faça sua reserva
                     </SheetTitle>
                   </SheetHeader>
 
-                  <div className="pt-5">
+                  <div className="px-2 pt-6">
                     <Calendar
                       mode="single"
                       locale={ptBR}
@@ -234,7 +234,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   </div>
 
                   {selectedDay && (
-                    <div className="flex gap-3 overflow-auto px-3 pt-8 [&::-webkit-scrollbar]:hidden">
+                    <div className="flex gap-3 overflow-auto px-5 pt-10 [&::-webkit-scrollbar]:hidden">
                       {timeList.length > 0 ? (
                         timeList.map((time) => (
                           <Button
@@ -242,7 +242,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                             variant={
                               selectedTime === time ? "default" : "ghost"
                             }
-                            className="rounded-lg"
+                            className="rounded-xl"
                             onClick={() => handleTimeSelect(time)}
                           >
                             {time}
@@ -257,7 +257,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   )}
 
                   {selectedTime && selectedDay && (
-                    <div className="px-3 pt-12">
+                    <div className="px-5 pt-12">
                       <Card className="rounded-xl">
                         <CardContent className="space-y-3 p-3">
                           <div className="flex items-center justify-between">
@@ -277,9 +277,13 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                               Data
                             </h2>
                             <p className="text-sm font-light">
-                              {format(selectedDay, "d 'de' MMMM", {
-                                locale: ptBR,
-                              })}
+                              <span>
+                                {format(selectedDay, "d ", { locale: ptBR })}
+                              </span>
+                              <span>de</span>
+                              <span className="capitalize">
+                                {format(selectedDay, " MMMM", { locale: ptBR })}
+                              </span>
                             </p>
                           </div>
 
@@ -303,7 +307,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                     </div>
                   )}
                   {selectedTime && selectedDay && (
-                    <SheetFooter className="px-3 pt-10">
+                    <SheetFooter className="px-5 pt-10">
                       <SheetClose asChild>
                         <Button
                           onClick={handleCreateBooking}
