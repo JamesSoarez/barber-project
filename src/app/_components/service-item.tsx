@@ -15,13 +15,14 @@ import {
 import { Calendar } from "./ui/calendar"
 import { ptBR } from "date-fns/locale"
 import { useEffect, useMemo, useState } from "react"
-import { format, isPast, isToday, set } from "date-fns"
+import { isPast, isToday, set } from "date-fns"
 import { createBooking } from "../_actions/create-booking"
 import { useSession } from "next-auth/react"
 import { toast } from "sonner"
 import { getBookings } from "../_actions/get-bookings"
 import { Dialog, DialogContent } from "./ui/dialog"
 import SignInDialog from "./sign-in-dialog"
+import BookingSummary from "./booking-summary"
 
 interface ServiceItemProps {
   service: BarbershopService
@@ -103,6 +104,14 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
     fetch()
   }, [selectedDay, service.id])
 
+  const selectedDate = useMemo(() => {
+    if (!selectedDay || !selectedTime) return
+    return set(selectedDay, {
+      hours: Number(selectedTime?.split(":")[0]),
+      minutes: Number(selectedTime?.split(":")[1]),
+    })
+  }, [selectedDay, selectedTime])
+
   const handleBookingClick = () => {
     if (data?.user) {
       return setBookingSheetIsOpen(true)
@@ -127,19 +136,10 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
 
   const handleCreateBooking = async () => {
     try {
-      if (!selectedDay || !selectedTime) return
-
-      const hour = Number(selectedTime.split(":")[0])
-      const minute = Number(selectedTime.split(":")[1])
-
-      const newDate = set(selectedDay, {
-        minutes: minute,
-        hours: hour,
-      })
-
+      if (!selectedDate) return
       await createBooking({
         serviceId: service.id,
-        date: newDate,
+        date: selectedDate,
       })
       toast.error("Reserva realizada com sucesso!")
     } catch (error) {
@@ -249,61 +249,20 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                           </Button>
                         ))
                       ) : (
-                        <p className="ml-2 text-sm font-light">
+                        <p className="ml-3 pt-2 text-sm font-light">
                           Não há horários disponíveis para este dia.
                         </p>
                       )}
                     </div>
                   )}
 
-                  {selectedTime && selectedDay && (
+                  {selectedDate && (
                     <div className="px-5 pt-8">
-                      <Card className="rounded-xl">
-                        <CardContent className="space-y-3 p-3">
-                          <div className="flex items-center justify-between">
-                            <h2 className="text-base font-bold">
-                              {service.name}
-                            </h2>
-                            <p className="text-base font-semibold">
-                              {Intl.NumberFormat("pt-BR", {
-                                style: "currency",
-                                currency: "BRL",
-                              }).format(Number(service.price))}
-                            </p>
-                          </div>
-
-                          <div className="flex items-center justify-between">
-                            <h2 className="text-sm font-light text-gray-400">
-                              Data
-                            </h2>
-                            <p className="text-sm font-light">
-                              <span>
-                                {format(selectedDay, "d ", { locale: ptBR })}
-                              </span>
-                              <span>de</span>
-                              <span className="capitalize">
-                                {format(selectedDay, " MMMM", { locale: ptBR })}
-                              </span>
-                            </p>
-                          </div>
-
-                          <div className="flex items-center justify-between">
-                            <h2 className="text-sm font-light text-gray-400">
-                              Horário
-                            </h2>
-                            <p className="text-sm font-light">{selectedTime}</p>
-                          </div>
-
-                          <div className="flex items-center justify-between">
-                            <h2 className="text-sm font-light text-gray-400">
-                              Barbearia
-                            </h2>
-                            <p className="text-sm font-light">
-                              {barbershop.name}
-                            </p>
-                          </div>
-                        </CardContent>
-                      </Card>
+                      <BookingSummary
+                        barbershop={barbershop}
+                        service={service}
+                        selectedDate={selectedDate}
+                      />
                     </div>
                   )}
                   {selectedTime && selectedDay && (
