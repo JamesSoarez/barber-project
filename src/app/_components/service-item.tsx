@@ -294,7 +294,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                           <DialogHeader>
                             <CheckCircle2Icon
                               size={"60%"}
-                              className="ml-[20%] fill-primary text-[#141518]"
+                              className="ml-[20%] fill-primary text-[#151619]"
                             />
                             <DialogTitle className="text-xl font-medium">
                               Reserva Efetuada!
@@ -311,7 +311,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                               <DialogClose asChild>
                                 <Button
                                   variant={"secondary"}
-                                  className="w-full rounded-xl"
+                                  className="w-full rounded-xl p-0"
                                 >
                                   Fechar
                                 </Button>
@@ -321,7 +321,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                             <DialogClose asChild>
                               <Button
                                 variant={"default"}
-                                className="w-full rounded-xl"
+                                className="w-full rounded-xl p-0"
                                 onClick={() => router.push("/bookings")}
                               >
                                 Agendamentos

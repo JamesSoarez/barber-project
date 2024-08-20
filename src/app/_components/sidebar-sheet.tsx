@@ -125,10 +125,10 @@ const SidebarSheet = () => {
           <Dialog>
             <DialogTrigger asChild>
               <Button
-                className="w-full justify-start gap-3 rounded-xl font-light"
+                className="w-full justify-start gap-2 font-light"
                 variant={"ghost"}
               >
-                <LogOutIcon size={18} />
+                <LogOutIcon size={22} />
                 Sair da conta
               </Button>
             </DialogTrigger>
