@@ -6,7 +6,6 @@ import { Button } from "./ui/button"
 import { Card, CardContent } from "./ui/card"
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetFooter,
   SheetHeader,
@@ -20,9 +19,20 @@ import { createBooking } from "../_actions/create-booking"
 import { useSession } from "next-auth/react"
 import { toast } from "sonner"
 import { getBookings } from "../_actions/get-bookings"
-import { Dialog, DialogContent } from "./ui/dialog"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "./ui/dialog"
 import SignInDialog from "./sign-in-dialog"
 import BookingSummary from "./booking-summary"
+import { DialogTrigger } from "@radix-ui/react-dialog"
+import { CheckCircle2Icon } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 interface ServiceItemProps {
   service: BarbershopService
@@ -82,8 +92,9 @@ const getTimeList = ({ bookings, selectedDay }: GetTimeListProps) => {
 }
 
 const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
-  const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false)
+  const router = useRouter()
   const { data } = useSession()
+  const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false)
   const [selectedDay, setSelectedDay] = useState<Date | undefined>(undefined)
   const [selectedTime, setSelectedTime] = useState<String | undefined>(
     undefined,
@@ -141,7 +152,9 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
         serviceId: service.id,
         date: selectedDate,
       })
-      toast.error("Reserva realizada com sucesso!")
+      {
+        /*toast.error("Reserva realizada com sucesso!")*/
+      }
     } catch (error) {
       console.log(error)
       toast.error("Erro ao reservar! Tente novamente!")
@@ -234,7 +247,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   </div>
 
                   {selectedDay && (
-                    <div className="flex gap-3 overflow-auto px-5 pt-5 [&::-webkit-scrollbar]:hidden">
+                    <div className="flex gap-3 overflow-auto px-5 pb-8 pt-5 [&::-webkit-scrollbar]:hidden">
                       {timeList.length > 0 ? (
                         timeList.map((time) => (
                           <Button
@@ -249,7 +262,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                           </Button>
                         ))
                       ) : (
-                        <p className="ml-3 pt-2 text-sm font-light">
+                        <p className="ml-3 pb-3 pt-2 text-sm font-light">
                           Não há horários disponíveis para este dia.
                         </p>
                       )}
@@ -257,7 +270,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   )}
 
                   {selectedDate && (
-                    <div className="px-5 pt-8">
+                    <div className="pt-8s px-5">
                       <BookingSummary
                         barbershop={barbershop}
                         service={service}
@@ -267,14 +280,56 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   )}
                   {selectedTime && selectedDay && (
                     <SheetFooter className="px-5 pt-6">
-                      <SheetClose asChild>
-                        <Button
-                          onClick={handleCreateBooking}
-                          className="rounded-xl"
-                        >
-                          Confirmar
-                        </Button>
-                      </SheetClose>
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button
+                            variant={"default"}
+                            onClick={handleCreateBooking}
+                            className="w-full rounded-xl"
+                          >
+                            Confirmar
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="w-[80%] rounded-xl border-none">
+                          <DialogHeader>
+                            <CheckCircle2Icon
+                              size={"60%"}
+                              className="ml-[20%] fill-primary text-[#141518]"
+                            />
+                            <DialogTitle className="text-2xl font-medium">
+                              Reserva Efetuada!
+                            </DialogTitle>
+                            <DialogDescription className="text-lg font-normal text-gray-400">
+                              Sua reserva foi agendada com sucesso.
+                            </DialogDescription>
+                          </DialogHeader>
+                          <DialogFooter className="flex flex-row gap-3">
+                            <Dialog
+                              open={bookingSheetIsOpen}
+                              onOpenChange={handleBookingSheetOpenChange}
+                            >
+                              <DialogClose asChild>
+                                <Button
+                                  variant={"secondary"}
+                                  className="w-full rounded-xl"
+                                >
+                                  Fechar
+                                </Button>
+                              </DialogClose>
+                            </Dialog>
+
+                            <DialogClose asChild>
+                              <Button
+                                variant={"default"}
+                                className="w-full rounded-xl"
+                                onClick={() => router.push("/bookings")}
+                              >
+                                Agendamentos
+                              </Button>
+                            </DialogClose>
+                          </DialogFooter>
+                        </DialogContent>
+                      </Dialog>
                     </SheetFooter>
                   )}
                 </SheetContent>
