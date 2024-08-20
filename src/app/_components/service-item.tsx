@@ -208,12 +208,12 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
 
                 <SheetContent className="w-[90%] overflow-auto border-none px-0 pb-16">
                   <SheetHeader className="border-b border-solid">
-                    <SheetTitle className="pb-8 pl-5 pt-3 text-left text-lg font-normal">
+                    <SheetTitle className="pb-6 pl-5 text-left text-lg font-normal">
                       Faça sua reserva
                     </SheetTitle>
                   </SheetHeader>
 
-                  <div className="px-2 pt-6">
+                  <div className="px-2 pt-3">
                     <Calendar
                       mode="single"
                       locale={ptBR}
@@ -296,10 +296,10 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                               size={"60%"}
                               className="ml-[20%] fill-primary text-[#141518]"
                             />
-                            <DialogTitle className="text-2xl font-medium">
+                            <DialogTitle className="text-xl font-medium">
                               Reserva Efetuada!
                             </DialogTitle>
-                            <DialogDescription className="text-lg font-normal text-gray-400">
+                            <DialogDescription className="text-base font-normal text-gray-400">
                               Sua reserva foi agendada com sucesso.
                             </DialogDescription>
                           </DialogHeader>
