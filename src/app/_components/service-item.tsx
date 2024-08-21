@@ -290,16 +290,16 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                             Confirmar
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="w-[80%] rounded-xl border-none">
+                        <DialogContent className="w-[70%] rounded-xl border-none">
                           <DialogHeader>
                             <CheckCircle2Icon
-                              size={"60%"}
-                              className="ml-[20%] fill-primary text-[#151619]"
+                              size={"48%"}
+                              className="ml-[26%] fill-primary text-[#151619]"
                             />
-                            <DialogTitle className="text-xl font-medium">
+                            <DialogTitle className="pt-2 text-xl font-medium">
                               Reserva Efetuada!
                             </DialogTitle>
-                            <DialogDescription className="text-base font-normal text-gray-400">
+                            <DialogDescription className="pt-1 text-base font-normal text-gray-400">
                               Sua reserva foi agendada com sucesso.
                             </DialogDescription>
                           </DialogHeader>

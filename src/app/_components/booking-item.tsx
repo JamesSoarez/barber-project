@@ -32,7 +32,6 @@ import { deleteBooking } from "../_actions/delete-booking"
 import { toast } from "sonner"
 import { useState } from "react"
 import BookingSummary from "./booking-summary"
-
 interface BookingItemProps {
   booking: Prisma.BookingGetPayload<{
     include: {
@@ -179,7 +178,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                         variant={"secondary"}
                         className="w-full rounded-xl"
                       >
-                        Voltar
+                        Fechar
                       </Button>
                     </DialogClose>
                     <DialogClose asChild>
